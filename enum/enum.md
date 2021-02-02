@@ -140,15 +140,15 @@ f(APPLE)
 ## 네임스페이스의 충돌
 같은 namespace에 같은 값과 다른 의미를 가진 상태가 존재할 수 있다. 
 ```typescript
-const FRUITE_APPLE = 0 // 과일
-const FRUITE_ORANGE = 1
-const FRUITE_BANANA = 2
+const FRUIT_APPLE = 0 // 과일
+const FRUIT_ORANGE = 1
+const FRUIT_BANANA = 2
 
 const COMPANY_APPLE = 0 // 회사
 const COMPANY_GOOGLE = 1
 const COMPANY_FACEBOOK = 3
 
-f(FRUITE_APPLE)  // do apple code.
+f(FRUIT_APPLE)  // do apple code.
 f(COMPANY_APPLE) // do apple code.
 ```
 ```markdown
@@ -169,10 +169,10 @@ f(COMPANY_APPLE) // do apple code.
 </style>
 ## 타입의 불안정성
 ```typescript
-const FRUITE_APPLE = 0
+const FRUIT_APPLE = 0
 const COMPANY_APPLE = 0
 
-FRUITE_APPLE === COMPANY_APPLE // true
+FRUIT_APPLE === COMPANY_APPLE // true
 ```
 ```markdown
 # 값은 메모리에 적재된 bit를 직접 비교하기 때문에, 값을 사용하는 프로그램은 깨지기 쉽다.
@@ -206,7 +206,7 @@ f('APPLEE')
 ## 열거형 (Enumerated type)
 개별적인 namespace를 갖게 하여 추상적인 대상을 명확하게 표현한다.
 ```typescript
-enum Fruite {
+enum Fruit {
   APPLE,
   ORANGE,
   BANANA
@@ -216,9 +216,9 @@ enum Company {
   GOOGLE = 'GOOGLE',
   FACEBOOK = 'FACEBOOK'
 }
-console.log(Fruite[0] === 'APPLE') // true
-console.log(Fruite['APPLE'] === 0) // true
-console.log(Fruite.APPLE === 0) // true
+console.log(Fruit[0] === 'APPLE') // true
+console.log(Fruit['APPLE'] === 0) // true
+console.log(Fruit.APPLE === 0) // true
 
 console.log(Company.APPLE === 'APPLE') // true
 ```
@@ -241,18 +241,18 @@ console.log(Company.APPLE === 'APPLE') // true
 ## 유지보수(Maintenance)의 어려움
 열거형을 그대로 사용하면 값을 사용하여 상태를 판단하기 때문에 수정의 여파가 어플리케이션 전체가 될 수 있다.
 ```typescript
-type fruite = string;
+type fruit = string;
 
 // A.tsx
-import Fruite from './fruite'
-if (fruite === Fruite.APPLE) {/* do apple.. */}
-else if (fruite === Fruite.ORANGE) {/* do orange.. */}
+import Fruit from './fruit'
+if (fruit === Fruit.APPLE) {/* do apple.. */}
+else if (fruit === Fruit.ORANGE) {/* do orange.. */}
 else {/* do banana */}
 
 // B.tsx
-import Fruite from './fruite'
-if (fruite === Fruite.APPLE) {/* do apple.. */}
-else if (fruite === Fruite.ORANGE) {/* do orange.. */}
+import Fruit from './fruit'
+if (fruit === Fruit.APPLE) {/* do apple.. */}
+else if (fruit === Fruit.ORANGE) {/* do orange.. */}
 else {/* do banana */}
 
 // There will be able about lots of the same modules below.
@@ -278,18 +278,18 @@ else {/* do banana */}
 ## 맥락(Context)을 파악하기 어려움
 값을 비교하는 연산을 수행하기 때문에 코드의 의도를 읽고 파악하는 것이 쉽지 않다.
 ```typescript
-if (fruite === Fruite.APPLE) {/* do apple.. */}
+if (fruit === Fruit.APPLE) {/* do apple.. */}
 ```
 ```markdown 
-# fruite에 대한 정보와 Fruite.APPLE에 대한 정보를 전부 알아야 한다.
-# fruite와 APPLE이 같다는 것이 무엇을 의미하는지를 파악해야 한다.
+# fruit에 대한 정보와 Fruit.APPLE에 대한 정보를 전부 알아야 한다.
+# fruit와 APPLE이 같다는 것이 무엇을 의미하는지를 파악해야 한다.
 # 열거형이 특정 값(expresion)과 똑같다라는 코드의 맥락을 파악하기는 쉽지 않다.
 ```
 
 조건이 중첩되면 더 까다로워 진다.
 ```typescript
-if ((fruite === Fruite.APPLE && ripe === Ripe.ENOUGH && sweet === Sweet.ENOUGH)
-  || (fruite === Fruite.MANGO && ripe === Ripe.NOT_ENOUGH && sweet !== Sweet.ENOUGH)) {
+if ((fruit === Fruit.APPLE && ripe === Ripe.ENOUGH && sweet === Sweet.ENOUGH)
+  || (fruit === Fruit.MANGO && ripe === Ripe.NOT_ENOUGH && sweet !== Sweet.ENOUGH)) {
   /* do something.. */
 }
 ```
@@ -356,25 +356,25 @@ if ((fruite === Fruite.APPLE && ripe === Ripe.ENOUGH && sweet === Sweet.ENOUGH)
 `# enum과 함수를 같은 곳에 선언하여 중복을 제거하고 관련 코드를 한곳으로 모아 응집도를 높인다.`
 
 ```typescript
-export const enum Fruite {
+export const enum Fruit {
   APPLE = 'APPLE',
   ORANGE = 'ORANGE',
   BANANA = 'BANANA'
 }
-export const isApple = (fruite: keyof typeof Fruite) => fruite === Fruite.APPLE
-export const isOrange = (fruite: keyof typeof Fruite) => fruite === Fruite.ORANGE
-export const isBanana = (fruite: keyof typeof Fruite) => fruite === Fruite.BANANA
+export const isApple = (fruit: keyof typeof Fruit) => fruit === Fruit.APPLE
+export const isOrange = (fruit: keyof typeof Fruit) => fruit === Fruit.ORANGE
+export const isBanana = (fruit: keyof typeof Fruit) => fruit === Fruit.BANANA
 ```
 `# 사용하는 쪽에서는 직접 조건을 작성하지 않고 호출만 한다.`
 ```typescript
-import {Frute, isApple, isOrange} from './fruite'
+import {Frute, isApple, isOrange} from './fruit'
 // A.tsx
-import Fruite from './fruite'
-if (isApple(fruite)) {/* do apple.. */}
+import Fruit from './fruit'
+if (isApple(fruit)) {/* do apple.. */}
 
 // B.tsx
-import Fruite from './fruite'
-if (isApple(fruite)) {/* do apple.. */}
+import Fruit from './fruit'
+if (isApple(fruit)) {/* do apple.. */}
 ```
 
 ---
@@ -392,25 +392,25 @@ if (isApple(fruite)) {/* do apple.. */}
 ## 유지보수성 향상
 `# 타입이 추가 되어도 문제가 없다.`
 ```typescript
-export const enum Fruite {
+export const enum Fruit {
   HONEY_APPLE = 'HONEY_APPLE'
 }
-export const isHoneyApple = (fruite: keyof typeof Fruite) => fruite === Fruite.HONEY_APPLE
+export const isHoneyApple = (fruit: keyof typeof Fruit) => fruit === Fruit.HONEY_APPLE
 ```
 `# 사과를 판단하는 조건이 복잡하게 변경되더라도, isApple 함수의 내부의 조건만 변경할 수 있다.`
 ```typescript
-export const isApple = (fruite: keyof typeof Fruite) => fruite === Fruite.APPLE || isHoneyApple(fruite)
+export const isApple = (fruit: keyof typeof Fruit) => fruit === Fruit.APPLE || isHoneyApple(fruit)
 ```
 `# 사용하는 쪽에서는 호출만 하기 때문에 수정의 여파가 없다.`
 ```typescript
-import {Frute, isApple, isOrange} from './fruite'
+import {Frute, isApple, isOrange} from './fruit'
 // A.tsx
-import Fruite from './fruite'
-if (isApple(fruite)) {/* do apple.. */}
+import Fruit from './fruit'
+if (isApple(fruit)) {/* do apple.. */}
 
 // B.tsx
-import Fruite from './fruite'
-if (isApple(fruite)) {/* do apple.. */}
+import Fruit from './fruit'
+if (isApple(fruit)) {/* do apple.. */}
 ```
 ---
 <style scoped>
@@ -437,21 +437,21 @@ if (isApple(fruite)) {/* do apple.. */}
     }
 </style>
 ## 상태와 행위의 분리
-`# 아래 존재하는 모든 함수는 Fruite를 위해 만들어진 행위들이다.`
+`# 아래 존재하는 모든 함수는 Fruit를 위해 만들어진 행위들이다.`
 ```typescript
-export const enum Fruite {
+export const enum Fruit {
   APPLE = 'APPLE',
   ORANGE = 'ORANGE',
   BANANA = 'BANANA'
 }
-export const isApple = (fruite: keyof typeof Fruite) => fruite === Fruite.APPLE
-export const isOrange = (fruite: keyof typeof Fruite) => fruite === Fruite.ORANGE
-export const isBanana = (fruite: keyof typeof Fruite) => fruite === Fruite.BANANA
+export const isApple = (fruit: keyof typeof Fruit) => fruit === Fruit.APPLE
+export const isOrange = (fruit: keyof typeof Fruit) => fruit === Fruit.ORANGE
+export const isBanana = (fruit: keyof typeof Fruit) => fruit === Fruit.BANANA
 ```
 ```markdown
 # 얼핏 보면 같은 모듈에 작성되어 같은 맥락인 것처럼 보인다.
 
-# 하지만 enum Fruite와 아래의 함수들은 코드상으로는 연결점이 없다.
+# 하지만 enum Fruit와 아래의 함수들은 코드상으로는 연결점이 없다.
 
 # 그렇기 때문에 어떤 상태 값에 종속적인 행위를 표현하기엔 부족하고, 쉽게 다른 조건들이 추가되거나 함수자체가 다른 곳으로 분리되어진다.
 ```
@@ -480,14 +480,14 @@ export const isBanana = (fruite: keyof typeof Fruite) => fruite === Fruite.BANAN
 # 자바스크립트의 객체는 싱글톤 이므로 타입에 안전하다. 
 ```
 ```typescript
-class Fruite {
-  public static APPLE = new Fruite()
-  public static ORANGE = new Fruite()
-  public static BANANA = new Fruite()
+class Fruit {
+  public static APPLE = new Fruit()
+  public static ORANGE = new Fruit()
+  public static BANANA = new Fruit()
 }
-Fruite.APPLE === 'APPLE'        // false
-Fruite.APPLE === 0              // false
-Fruite.APPLE === Fruite.ORANGE  // false
+Fruit.APPLE === 'APPLE'        // false
+Fruit.APPLE === 0              // false
+Fruit.APPLE === Fruit.ORANGE  // false
 ```
 ---
 <style scoped>
@@ -509,15 +509,15 @@ Fruite.APPLE === Fruite.ORANGE  // false
 ```
 
 ```typescript
-class Fruite {
-  public static readonly APPLE = new Fruite()
-  public static readonly ORANGE = new Fruite()
-  public static readonly BANANA = new Fruite()
+class Fruit {
+  public static readonly APPLE = new Fruit()
+  public static readonly ORANGE = new Fruit()
+  public static readonly BANANA = new Fruit()
   
   private constructor () {}
 }
 
-class Child extends Fruite {} // not allowed
+class Child extends Fruit {} // not allowed
 ```
 ---
 <style scoped>
@@ -543,15 +543,15 @@ const enum Kind {
 ```
 # 객체에 필요한 상태를 할당하고, 상태를 관리할 권한을 부여한다.
 
-# 상태 fruite를 추가한다.
+# 상태 fruit를 추가한다.
 ```
 ```typescript
-class Fruite {
-  public static readonly APPLE = new Fruite(Kind.APPLE)
-  public static readonly ORANGE = new Fruite(Kind.ORANGE)
-  public static readonly BANANA = new Fruite(Kind.BANANA)
+class Fruit {
+  public static readonly APPLE = new Fruit(Kind.APPLE)
+  public static readonly ORANGE = new Fruit(Kind.ORANGE)
+  public static readonly BANANA = new Fruit(Kind.BANANA)
 
-  private constructor (private _fruite: Kind) {}
+  private constructor (private _fruit: Kind) {}
 }
 ```
 ---
@@ -569,22 +569,22 @@ class Fruite {
 ## 책임 할당
 `# 객체가 수행해야할 책임을 추가한다.`
 ```typescript
-class Fruite {
+class Fruit {
   // ...
   public isApple () {
-    return this.fruite === Kind.APPLE
+    return this.fruit === Kind.APPLE
   }
 
   public isOrange () {
-    return this.fruite === Kind.ORANGE
+    return this.fruit === Kind.ORANGE
   }
 
   public isBanana () {
-    return this.fruite === Kind.BANANA
+    return this.fruit === Kind.BANANA
   }
 
-  private get fruite () {
-    return this._fruite
+  private get fruit () {
+    return this._fruit
   }
 }
 ```
@@ -603,27 +603,27 @@ class Fruite {
 ## 코드로 표현된 권한과 책임
 `# 값과 함수가 아니라, 상태와 행위이기 때문에 코드는 분리되지 않고 연관성을 갖는다.`
 ```typescript
-export default class Fruite {
-  public static readonly APPLE = new Fruite(Kind.APPLE)
-  public static readonly ORANGE = new Fruite(Kind.ORANGE)
-  public static readonly BANANA = new Fruite(Kind.BANANA)
+export default class Fruit {
+  public static readonly APPLE = new Fruit(Kind.APPLE)
+  public static readonly ORANGE = new Fruit(Kind.ORANGE)
+  public static readonly BANANA = new Fruit(Kind.BANANA)
 
-  private constructor (private _fruite: Kind) {}
+  private constructor (private _fruit: Kind) {}
 
   public isApple () {
-    return this.fruite === Kind.APPLE
+    return this.fruit === Kind.APPLE
   }
 
   public isOrange () {
-    return this.fruite === Kind.ORANGE
+    return this.fruit === Kind.ORANGE
   }
 
   public isBanana () {
-    return this.fruite === Kind.BANANA
+    return this.fruit === Kind.BANANA
   }
 
-  private get fruite () {
-    return this._fruite
+  private get fruit () {
+    return this._fruit
   }
 }
 ```
@@ -641,29 +641,29 @@ export default class Fruite {
 </style>
 ## 상수의 사용
 ```typescript
-import Fruite from './fruite'
+import Fruit from './fruit'
 
-const example1 = (fruite: Fruite) => {
-  if (fruite.isApple()) {} 
+const example1 = (fruit: Fruit) => {
+  if (fruit.isApple()) {} 
   else {}
 }
-const example2 = (fruite: Fruite) => {
-  switch (fruite) {
-    case Fruite.APPLE:
+const example2 = (fruit: Fruit) => {
+  switch (fruit) {
+    case Fruit.APPLE:
       break
-    case Fruite.ORANGE:
+    case Fruit.ORANGE:
       break
-    case Fruite.BANANA:
+    case Fruit.BANANA:
       break
   }
 }
-const example3 = (fruite: Fruite) => {
+const example3 = (fruit: Fruit) => {
   switch (true) {
-    case fruite.isApple():
+    case fruit.isApple():
       break
-    case fruite.isOrange():
+    case fruit.isOrange():
       break
-    case fruite.isBanana():
+    case fruit.isBanana():
       break
   }
 }
@@ -694,12 +694,12 @@ const enum Peel {
 ```
 `# 상태를 추가하고, 권한을 부여한다.`
 ```typescript
-export default class Fruite {
-  public static readonly APPLE = new Fruite(Kind.APPLE, Peel.EXISTED)
-  public static readonly ORANGE = new Fruite(Kind.ORANGE, Peel.EXISTED)
-  public static readonly BANANA = new Fruite(Kind.BANANA, Peel.EXISTED)
+export default class Fruit {
+  public static readonly APPLE = new Fruit(Kind.APPLE, Peel.EXISTED)
+  public static readonly ORANGE = new Fruit(Kind.ORANGE, Peel.EXISTED)
+  public static readonly BANANA = new Fruit(Kind.BANANA, Peel.EXISTED)
 
-  private constructor (private _fruite: Kind, private _peel: Peel) {}
+  private constructor (private _fruit: Kind, private _peel: Peel) {}
 }
 ```
 ---
@@ -717,7 +717,7 @@ export default class Fruite {
 ## 손쉬운 변경 - 2
 `# 책임을 할당한다.`
 ```typescript
-export default class Fruite {
+export default class Fruit {
   // ...
   public isNeededKnife () {
     return this.peel === Peel.EXISTED
@@ -728,12 +728,12 @@ export default class Fruite {
   }
 }
 ```
-`# 사과를 식별하는 조건에 껍질 여부가 추가 된다 하더라도, 수정의 여파는 Fruite에 그친다.`
+`# 사과를 식별하는 조건에 껍질 여부가 추가 된다 하더라도, 수정의 여파는 Fruit에 그친다.`
 ```typescript
-export default class Fruite {
+export default class Fruit {
   // ...
   public isApple () {
-    return this.fruite === Kind.APPLE && this.isNeededKnife()
+    return this.fruit === Kind.APPLE && this.isNeededKnife()
   }
 }
 ```
@@ -756,24 +756,24 @@ export default class Fruite {
 # 값을 반환하는 values를 구현 한다.
 ```
 ```typescript
-class Fruite {
+class Fruit {
   // ...
   public static values () {
     return Object.values(this)
   }
 
-  public static from (fruite: string) {
-    return this.values().find(t => t.fruite === fruite)
+  public static from (fruit: string) {
+    return this.values().find(t => t.fruit === fruit)
   }
 }
 ```
 `# 직렬화를 위해 toJSON을 구현한다.`
 ```typescript
-class Fruite {
+class Fruit {
   // ...
   public toJSON () {
     return {
-      fruite: this.fruite
+      fruit: this.fruit
     }
   }
 }
