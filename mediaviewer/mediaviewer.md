@@ -20,83 +20,472 @@ marp: true;
 
 # 미디어 뷰어
 
+
 ---
 ## 목차
-- 미디어뷰어 소개
-  - 마이박스에는 많은 종류의 뷰어가 있음.
-  - 문서를 볼 수 있는 문서뷰어
-  - PDF를 볼 수 있는 PDF 뷰어
-  - 하지만 오늘 하고 싶은 이야기는 음악, 사진, 동영상을 볼 수 있는 미디어뷰어.
-  - 어떻게 실행시키나? 이미지를 누르거나, 비디오를 눌러서.
-    - 스크린샷등으로 처리하면 좋을 것 같아. 간단하게.
-  - 미디어뷰어 화면 및 기능 소개
-- 복잡도의 증가 
-  - 마이박스의 미디어뷰어는 점층적으로 복잡해졌고, 어려워졌다.
-    - 왜??
-  - 미디어뷰어에 접근하는 페이지가 많다.
-    - 접근하는 페이지들에 대한 간단한 메뉴 이미지 포함.
-    - 정렬 기능이나 각 페이지별 성격에 의해 이미지나 동영상 목록이 전부 다르다.
-  - 미디어뷰어가 보여주어야 하는 것들과 구현할 기능들이 점층적으로 많아졌다.
-    - 이미지, 동영상, 음악에 대한 콘텐츠 상세 정보.
-    - 추가적인 정보와 그 안에 추가되는 정보들.
-    - 각종 인터렉션과 기능들.
-    - 그리고 그 기능들이 일어날때의 상호작용
-      - 모달이 뜰때 컨트롤이 되지 않아야 하거나 줌이 되지 않아야 하는 등의 것들.
-  - 미디어뷰어가 의존하는 데이터의 종류가 다양해졌다.
-    - 드라이브 서버에서 응답하는 값들
-    - 포토서버에서 응답하는 값들 
-    - 그리고 그 모든 값들을 옵셔널로 주입 받는 미디어뷰어 
-      - 그리고 그 안에서 벌어지는 도메인 + 속성 값들과 모든 페이지의 경우의수로 뒤섞인 조건문들
-  - 미디어뷰어가 사용되는 프로젝트가 다양해졌다.
-    - 미니, 공유받은 페이지, 피씨 등 앞으로 얼마나 늘어날지 모른다.
-    - 각 플랫폼 별 헤더 사용 여부가 전부 다르다.
-      - 기본적으로 피씨에서 사용하는 헤더의 기능들과, 미니에서 사용하는 기능, 공유받은 페이지에서 사용하는 헤더의 기능이 전부 다르다
-      - 그래서 각 프로젝트 별로 사용하는 헤더를 별도로 구현하고 있었고 그 결과 어마어마한 중복 코드와 동일한 조건문들의 범벅이 이루어지고 있었다.
-  - 그래서 진짜 문제는 뭔데
-    - 매번 페이지의 리프레시가 발생하는 방식으로 코드가 구현되어 있음.
-    - 물론 캐시 정책을 세워서 추가적인 로드를 하지는 않지만, 기존 데이터의 복사가 계속하여 발생하기 때문에 지속적인 성능 감소가 발생할 수 밖에 없음.
-    - 새로운 페이지에 적용하거나 유지보수하는 것이 힘듬 
-    - 기존 코드의 히스토리 파악 자체가 힘듬
-    - 결국 코드 레벨로 들어가서 어떤 값을 주입해주어야 하는지 개발 전에 코드분석부터 하는게 일상이 되어버림.
-      - if else구문을 전부 분석해야만 화면에 내가 그리고 싶은 값을 그릴 수 있음.
-      - 각 페이지별로 옵션을 주입하는게 다 다르기 때문에 하나만 변경하더라도 다른 페이지에는 적용되지 않음.
-      - 유지보수 비용이 지속적으로 증가하고 사이드이펙트 또한 발생
-      - if else 구문 하나를 수정하면 모든 뷰어에 영향을 받을 수 밖에 없음.
-    - 수정하거나 추가한 코드가 광범위한 의존성 때문에 QA쪽에 전담되는 경우가 발생. 
-    - 사이드 이펙트가 발생.
-- 개선점 
-  - 마이박스 미디어뷰어의 공통 모듈화 
-  - 변하지 않는 것과 변하는 것을 구분 한다. 
-    - 변하지 않는 것은 화면에 보여지는 것들. 렌더링. 
-    - 변하는 것은 데이터.
-  - 미디어뷰어에서 변하지 않는 것들은 모듈화한다.
-  - 변하는 것들은 사용하는 쪽에서 주입하여 사용할 수 있도록 한다.
-  - 주입 받는 데이터는 변하지 않는 추상화된 값들로만 주입 한다.
-  - PC, Mobile등 플랫폼 별로 한번만 구현하고 여러곳에서 사용될 수 있도록 한다.
-  - 미디어뷰어는 썸네일을 선택하면 컨텐츠가 그려지는 구조이다.
-  - 썸네일 데이터를 주입하여 컨텐츠가 그려지도록 구현한다.
-  - 기존에는 미디어뷰어 내부에서 어떤 작업이 완료되면 도메인 의존적으로 if else 로 그 다음에 어떤 로직을 호출할지를 결정하는 방식.
-  - 새로운 방식은 미디어뷰어에 옵저버를 적용하고 이벤트를 발생시키는 방식으로 비지니스 로직에 대한 의존성은 끊어내고 확장성을 갖도록 한다.
-    - 박스로 이미지를 그려서 설명하는게 좋을듯. 
-    - 기존: 페이지 -> 미디어뷰어코드 -> 페이지 갱신
-    - 새로운것: 페이지 -> (구독) -> 미디어뷰어 이벤트 발생
-    - 미디어 뷰어 내부에서도 각 모듈별로 이벤트를 발생시키고 구독하는 형태로 모듈간의 의존성을 제거.
-  - 헤더의 모든 기능을 내장시키고 해당 기능을 사용할지 여부는 옵셔널한 값을 주입받도록 처리한다.
-    - 이로서 각 프로젝트에서 중복된 기능을 구현할 여지가 사라진다.
-  - 자바스크립트는 배열밖에 지원하지 않으므로, 썸네일 목록은 링크드 리스트 형태로 구현한다.
-  - 모든 것은 이벤트 전파 방식으로 구현되므로 통제가 쉬워진다.
-  - 각 모듈은 모듈에서 처리할 일만 처리하고 이벤트를 전파한다.
-- 성능
-  - 대충 성능 개선 짤 퍼포먼스로 측정.
-  - 성능 개선
+- 미디어뷰어
+- 문제점
+- 리팩토링 
+- 성능개선
 - 시연
-  - 기존 미디어뷰어 준비.
-  - 새로운 미디어뷰어 준비.
-- 결론
-  - 문서뷰어작성
-  - 좀 더 나은 사용성을 위한 뷰어 애니메이션 라이브러리 코드 개선
-  - 테스트코드 작성
+- 마무리
+
+
 ---
+<style scoped>
+    section {
+        text-align: center
+    }
+    h2 {
+        margin-top: 21%;
+        font-size: 100px
+    } 
+</style>
+## 마이박스 뷰어
+
+
+---
+<style scoped>
+p {
+    text-align: center;
+}
+p > img {
+    width: 95%;
+    height: auto;
+    vertical-align: top;
+    margin-top: -15px;
+}
+</style>
+## 문서뷰어
+![문서뷰어](image/document-viewer.png)
+
+---
+<style scoped>
+p {
+    text-align: center;
+}
+p > img {
+    width: 95%;
+    height: auto;
+    vertical-align: top;
+    margin-top: -15px;
+}
+</style>
+## PSD뷰어
+![PSD뷰어](image/psd-viewer.png)
+
+---
+<style scoped>
+p {
+    text-align: center;
+}
+p > img {
+    width: 95%;
+    height: auto;
+    vertical-align: top;
+    margin-top: -15px;
+}
+</style>
+## PDF뷰어
+![PDF뷰어](image/pdf-viewer.png)
+
+---
+<style scoped>
+p {
+    text-align: center;
+}
+p > img {
+    width: 95%;
+    height: auto;
+    vertical-align: top;
+    margin-top: -15px;
+}
+</style>
+## 미디어뷰어
+![미디어뷰어](image/media-viewer.png)
+
+
+---
+<style scoped>
+p {
+    text-align: center;
+}
+p > img {
+    width: 95%;
+    height: auto;
+    vertical-align: top;
+    margin-top: -15px;
+}
+</style>
+## 미디어뷰어 열기
+![미디어뷰어 열기](image/photo-item.png)
+
+---
+<style scoped>
+    section {
+        text-align: center
+    }
+    h2 {
+        margin-top: 21%;
+        font-size: 100px
+    } 
+</style>
+## 문제점
+
+---
+## 복잡해지는 미디어뷰어
+
+```markdown
+# 헤더에 추가되는 신규 과업의 증가
+
+# 스펙에 따라 컨트롤해야 하는 각 과업별 의존도 증가
+
+# 컨텐츠의 타입에 따라 과업 노출 조건의 복잡도 증가
+
+# 콘텐츠의 상세 영역의 정보 증가
+```
+
+
+---
+<style scoped>
+p {
+    text-align: center;
+}
+p > img {
+    width: 95%;
+    height: auto;
+    vertical-align: top;
+    margin-top: -15px;
+}
+</style>
+## 수 많은 페이지에서 접근
+![미디어뷰어 메뉴](image/menu.png)
+
+
+---
+## 페이지가 많은 것 무엇이 문제인가?
+
+```markdown
+# 정렬 및 검색 조건등이 페이지 별로 다름
+
+# 페이지 별로 표현할 컨텐츠 목록이 다름
+
+# 드라이브 API와 포토 API를 사용
+
+# 옵셔널한 값을 미디어뷰어에 주입
+```
+
+---
+<style scoped>
+p {
+    text-align: center;
+}
+p > img {
+    width: 95%;
+    height: auto;
+    vertical-align: top;
+    margin-top: 15px;
+}
+</style>
+## 옵셔널한 데이터
+![옵셔널 데이터](image/optional-data.png)
+
+
+---
+## 옵셔널한 데이터
+
+```markdown
+# 데이터 타입 추론 불가
+
+# 미디어뷰어에서 값을 확인하는 복잡한 조건문 중첩
+
+# 새로운 페이지에 미디어뷰어 적용 시 조건문을 전부 분석
+
+# 개발 비용 증가
+```
+
+---
+<style scoped>
+p {
+    text-align: center;
+}
+p > img {
+    width: 95%;
+    height: auto;
+    vertical-align: top;
+    margin-top: 15px;
+}
+</style>
+## 과업 후 페이지 갱신
+![페이지 갱신](image/refreshing-page.png)
+
+
+---
+## 의존성 증가
+
+```markdown
+# 어떤 페이지에서 호출 할지 알 수 없음
+
+# 호출한 페이지의 정보 저장
+
+# 페이지 의존성 증가
+
+# 페이지 별 사이드 이펙트 발생
+
+# 컨텐츠 변경 시 페이지 리프레시
+
+# 초기화 코드 실행
+
+# 성능 저하
+```
+
+
+---
+## 중복 코드
+
+```markdown
+# 마이박스, 미니포토, 공유URL
+
+# 제공하는 헤더 과업의 종류가 다름
+
+# 미디어뷰어, 헤더 기능 중복하여 작성
+```
+
+
+---
+<style scoped>
+    section {
+        text-align: center
+    }
+    h2 {
+        margin-top: 21%;
+        font-size: 100px
+    } 
+</style>
+## 리팩토링
+
+
+---
+<style scoped>
+p {
+    text-align: center;
+}
+p > img {
+    width: 95%;
+    height: auto;
+    vertical-align: top;
+    margin-top: -15px;
+}
+</style>
+## 공통 미디어 뷰어
+![기능 목록](image/viewer-functions.png)
+
+
+---
+<style scoped>
+p {
+    text-align: center;
+}
+p > img {
+    width: 95%;
+    height: auto;
+    vertical-align: top;
+    margin-top: 15px;
+}
+</style>
+## 선택해서 사용
+
+![헤더 옵션](image/header-option.png)
+```markdown
+# 페이지에서 사용할 과업 선택
+
+# 프로젝트 별 과업에 대한 중복 코드 제거
+```
+
+
+---
+<style scoped>
+p {
+    text-align: center;
+}
+p > img {
+    width: 95%;
+    height: auto;
+    vertical-align: top;
+    margin-top: -15px;
+}
+</style>
+## 다른 부분은 컨텐츠 목록
+![박스 이미지](image/media-viewer-boxed.png)
+
+
+---
+<style scoped>
+p {
+    text-align: center;
+}
+p > img {
+    width: 95%;
+    height: auto;
+    vertical-align: top;
+    margin-top: 15px;
+}
+</style>
+## 데이터 타입 추상화
+
+![dispatcher DI](image/dispatcher.png)
+
+```markdown
+# 컨텐츠 데이터 타입 추상화
+
+# 미디어뷰어가 컨텐츠 목록을 반환하는 인터페이스에 의존
+
+# 페이지별로 인터페이스 구현
+
+# 확장에 유연한 구조로 변경
+
+# 새로운 페이지에 적용 시 개발 비용 감소
+```
+
+
+
+---
+<style scoped>
+p {
+    text-align: center;
+}
+p > img {
+    width: 95%;
+    height: auto;
+    vertical-align: top;
+    margin-top: 15px;
+}
+</style>
+## 페이지에 대한 의존성 제거
+
+![subscribe](image/subscribe.png)
+
+```markdown
+# 페이지가 미디어뷰어를 실행 시 구독
+
+# 미디어뷰어 과업 완료 시 이벤트 전파
+
+# 페이지 자체적으로 전파된 이벤트에 따라 동작
+
+# 미디어뷰어의 페이지 의존성 제거
+
+# 미디어뷰어 수정 시 발생하는 페이지의 사이드 이펙트 제거
+```
+
+
+---
+## 공통 미디어뷰어
+
+```markdown
+# 변하지 않는 과업은 모듈화 하여 내장
+
+# 변하는 데이터들은 사용하는 쪽에서 주입
+
+# 뷰어 과업 완료 시 이벤트 전파
+
+# 높은 응집도 낮은 의존성
+
+# 미디어뷰어 확장이나 변경에 유리하도록 구조 변경
+```
+
+
+---
+<style scoped>
+    section {
+        text-align: center
+    }
+    h2 {
+        margin-top: 21%;
+        font-size: 100px
+    } 
+</style>
+## 성능개선
+
+
+---
+<style scoped>
+p {
+    text-align: center;
+}
+p > img {
+    width: 45%;
+    height: auto;
+    vertical-align: top;
+    margin-top: -15px;
+}
+</style>
+## 사진
+![v1-이미지-시간](image/v1-image-time.png) ![v2-이미지-시간](image/v2-image-time.png)
+
+![v1-이미지](image/v1-image.png) ![v2-이미지](image/v2-image.png)
+
+
+
+---
+<style scoped>
+p {
+    text-align: center;
+}
+p > img {
+    width: 45%;
+    height: auto;
+    vertical-align: top;
+    margin-top: -15px;
+}
+</style>
+## 음악
+![v1-음악-시간](image/v1-audio-time.png) ![v2-음악-시간](image/v2-audio-time.png)
+
+![v1-음악](image/v1-audio.png) ![v2-음악](image/v2-audio.png)
+
+
+
+---
+<style scoped>
+p {
+    text-align: center;
+}
+p > img {
+    width: 45%;
+    height: auto;
+    vertical-align: top;
+    margin-top: -15px;
+}
+</style>
+## 비디오
+![v1-비디오-시간](image/v1-video-time.png) ![v2-비디오-시간](image/v2-video-time.png)
+
+![v1-비디오](image/v1-video.png) ![v2-비디오](image/v2-video.png)
+
+
+---
+<style scoped>
+    section {
+        text-align: center
+    }
+    h2 {
+        margin-top: 21%;
+        font-size: 100px
+    } 
+</style>
+## 시연
+
+
+---
+## 마무리
+
+```markdown
+# 문서화
+
+# 테스트 케이스 작성 
+
+# 컨텐츠 영역 성능 개선 
+```
 
 ---
 <style scoped>
@@ -109,4 +498,3 @@ marp: true;
     } 
 </style>
 ## 끗
----
