@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bb45d713-b5c4-4b84-9e68-4f0c2e7c7676" name="Changes" comment="media viewer 공유">
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new-drive/image/cache-concrete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new-drive/image/cache-hierarchy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new-drive/image/contents-hierarchy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new-drive/image/home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new-drive/image/homefactory.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new-drive/image/menu-tree.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new-drive/image/my-drive-hierarchy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new-drive/image/new-drive.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new-drive/image/resource-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new-drive/image/resource-inheritance-directly.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new-drive/image/resource-selected-file.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new-drive/image/resource-selected-folder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new-drive/image/resources-contents.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new-drive/image/resources-hierarchy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new-drive/image/splited-area.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new-drive/image/synchronize-information.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new-drive/image/synchronize.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new-drive/image/whole-hierarchy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/new-drive/newdrive.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="28mcvOs8HxiIgzf876CVN8zoRbL" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "ignore_missing_gitignore": "true",
+    "last_opened_file_path": "/Users/user/IdeaProjects/speaking/new-drive/image",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/new-drive/image" />
+      <recent name="$PROJECT_DIR$/new-drive" />
+      <recent name="$PROJECT_DIR$/mediaviewer/image" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/new-drive/image" />
+      <recent name="$PROJECT_DIR$/mediaviewer/image" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bb45d713-b5c4-4b84-9e68-4f0c2e7c7676" name="Changes" comment="" />
+      <created>1651825431940</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1651825431940</updated>
+      <workItem from="1651825433129" duration="13351000" />
+      <workItem from="1651890801689" duration="161000" />
+      <workItem from="1651933213508" duration="7970000" />
+      <workItem from="1652070711277" duration="1083000" />
+      <workItem from="1652163133188" duration="464000" />
+      <workItem from="1691407028372" duration="4750000" />
+      <workItem from="1691460345580" duration="1579000" />
+      <workItem from="1691462494903" duration="13363000" />
+    </task>
+    <task id="LOCAL-00001" summary="media viewer 공유">
+      <created>1652074439342</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1652074439342</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="media viewer 공유" />
+    <option name="LAST_COMMIT_MESSAGE" value="media viewer 공유" />
+  </component>
+</project>
