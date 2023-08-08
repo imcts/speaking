@@ -577,7 +577,7 @@ p > img {
   class MyDriveResource {
     public async move () {
       const resources = this.selected.getSelectedResources();// 선택된 리소스관리
-      await Promise.all(resources.moveTo(this.resourceKey)); // API 통신
+      await Promise.all(resources.moveTo(this));             // API 통신
       this.appendChild(resources);                           // 내 폴더에 추가
     }
   }
@@ -594,14 +594,11 @@ p > img {
 
 # 선택된 컨텐츠를 보관할 역할 객체 구성
 
-# 리소스 내부에 과업별 합성 및 위임
+# 리소스가 커지면 역할 분배, 합성 및 위임
 
 # 모델 별 테스트 케이스
 
 # 디버깅 방법 고민
-
-# 문서화 
-
 ```
 
 ---

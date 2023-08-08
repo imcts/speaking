@@ -4,28 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb45d713-b5c4-4b84-9e68-4f0c2e7c7676" name="Changes" comment="media viewer 공유">
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new-drive/image/cache-concrete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new-drive/image/cache-hierarchy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new-drive/image/contents-hierarchy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new-drive/image/home.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new-drive/image/homefactory.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new-drive/image/menu-tree.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new-drive/image/my-drive-hierarchy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new-drive/image/new-drive.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new-drive/image/resource-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new-drive/image/resource-inheritance-directly.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new-drive/image/resource-selected-file.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new-drive/image/resource-selected-folder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new-drive/image/resources-contents.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new-drive/image/resources-hierarchy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new-drive/image/splited-area.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new-drive/image/synchronize-information.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new-drive/image/synchronize.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new-drive/image/whole-hierarchy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new-drive/newdrive.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="bb45d713-b5c4-4b84-9e68-4f0c2e7c7676" name="Changes" comment="뉴드라이브 준비">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new-drive/newdrive.html" beforeDir="false" afterPath="$PROJECT_DIR$/new-drive/newdrive.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new-drive/newdrive.md" beforeDir="false" afterPath="$PROJECT_DIR$/new-drive/newdrive.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +67,7 @@
       <workItem from="1652163133188" duration="464000" />
       <workItem from="1691407028372" duration="4750000" />
       <workItem from="1691460345580" duration="1579000" />
-      <workItem from="1691462494903" duration="13363000" />
+      <workItem from="1691462494903" duration="14764000" />
     </task>
     <task id="LOCAL-00001" summary="media viewer 공유">
       <created>1652074439342</created>
@@ -94,7 +76,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652074439342</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="뉴드라이브 준비">
+      <created>1691503293352</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1691503293353</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -113,6 +102,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="media viewer 공유" />
-    <option name="LAST_COMMIT_MESSAGE" value="media viewer 공유" />
+    <MESSAGE value="뉴드라이브 준비" />
+    <option name="LAST_COMMIT_MESSAGE" value="뉴드라이브 준비" />
   </component>
 </project>
