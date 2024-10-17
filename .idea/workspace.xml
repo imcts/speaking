@@ -5,21 +5,57 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb45d713-b5c4-4b84-9e68-4f0c2e7c7676" name="Changes" comment="뉴드라이브 준비">
+      <change afterPath="$PROJECT_DIR$/webtalk/image/drive-location-modal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webtalk/image/drive-location-popup.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webtalk/image/iframe-arrot-to-C.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webtalk/image/iframe-arrow-a-to-b.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webtalk/image/iframe-arrow-c-to-a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webtalk/image/iframe-arrow-to-A.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webtalk/image/iframe-exam-modal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webtalk/image/iframe-exam.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webtalk/image/library-tasks.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webtalk/image/library-working.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webtalk/image/link-share-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webtalk/image/link-share-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webtalk/image/relation-task.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webtalk/image/webtalk-folder-area.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webtalk/image/webtalk-folder-button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webtalk/image/webtalk-library.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webtalk/webtalk.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/new-drive/newdrive.html" beforeDir="false" afterPath="$PROJECT_DIR$/new-drive/newdrive.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new-drive/newdrive.md" beforeDir="false" afterPath="$PROJECT_DIR$/new-drive/newdrive.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "imcts"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/imcts/speaking.git",
+    "accountId": "4999340c-d272-4b8d-b1ad-f6c29b021eec"
+  }
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
   <component name="ProjectId" id="28mcvOs8HxiIgzf876CVN8zoRbL" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -31,8 +67,10 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
     "ignore_missing_gitignore": "true",
-    "last_opened_file_path": "/Users/user/IdeaProjects/speaking/new-drive/image",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/user/IdeaProjects/speaking/webtalk",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -43,14 +81,24 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/webtalk" />
       <recent name="$PROJECT_DIR$/new-drive/image" />
       <recent name="$PROJECT_DIR$/new-drive" />
       <recent name="$PROJECT_DIR$/mediaviewer/image" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/webtalk/image" />
       <recent name="$PROJECT_DIR$/new-drive/image" />
       <recent name="$PROJECT_DIR$/mediaviewer/image" />
     </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -68,6 +116,7 @@
       <workItem from="1691407028372" duration="4750000" />
       <workItem from="1691460345580" duration="1579000" />
       <workItem from="1691462494903" duration="14764000" />
+      <workItem from="1729129005928" duration="17202000" />
     </task>
     <task id="LOCAL-00001" summary="media viewer 공유">
       <created>1652074439342</created>
