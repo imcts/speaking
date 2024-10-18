@@ -56,7 +56,7 @@ p > img {
 }
 </style>
 ## 웹톡 페이지
-![뉴드라이브](image/webtalk-folder-area.png)
+![뉴드라이브](./image/webtalk-folder-area.png)
 
 ---
 <style scoped>
@@ -147,7 +147,7 @@ p > img {
 }
 </style>
 ## 방법2 - 폴더 영역 라이브러리를 제공
-![뉴드라이브](image/webtalk-library.png)
+![뉴드라이브](./image/webtalk-library.png)
 
 ---
 <style scoped>
@@ -163,7 +163,7 @@ p > img {
 }
 </style>
 ## 방법2 - 폴더 영역 라이브러리를 제공
-![뉴드라이브](image/webtalk-folder-button.png)
+![뉴드라이브](./image/webtalk-folder-button.png)
 
 ---
 
@@ -203,7 +203,7 @@ p > img {
 }
 </style>
 ## 방법3 - Iframe (Inline Frame)
-![뉴드라이브](image/iframe-exam.png)
+![뉴드라이브](./image/iframe-exam.png)
 
 ---
 
@@ -256,7 +256,7 @@ p > img {
 }
 </style>
 ## 과업 수행 
-![뉴드라이브](image/link-share-1.png)
+![뉴드라이브](./image/link-share-1.png)
 
 ---
 
@@ -273,7 +273,7 @@ p > img {
 }
 </style>
 ## 과업 수행
-![뉴드라이브](image/link-share-2.png)
+![뉴드라이브](./image/link-share-2.png)
 
 ---
 
@@ -292,7 +292,7 @@ p > img {
 }
 </style>
 ## 모달 노출 범위
-![뉴드라이브](image/iframe-exam-modal.png)
+![뉴드라이브](./image/iframe-exam-modal.png)
 
 
 ---
@@ -333,7 +333,7 @@ p > img {
 }
 </style>
 ## 과업 수행 시 웹톡으로 요청
-![뉴드라이브](image/link-share-1.png)
+![뉴드라이브](./image/link-share-1.png)
 
 ---
 
@@ -351,7 +351,7 @@ p > img {
 }
 </style>
 ## 과업 수행 시 웹톡으로 요청 
-![뉴드라이브](image/iframe-arrow-to-A.png)
+![뉴드라이브](./image/iframe-arrow-to-A.png)
 
 
 ---
@@ -370,7 +370,7 @@ p > img {
 }
 </style>
 ## 과업 수행 시 웹톡으로 요청 
-![뉴드라이브](image/link-share-2.png)
+![뉴드라이브](./image/link-share-2.png)
 
 ---
 
@@ -409,7 +409,7 @@ p > img {
 }
 </style>
 ## 과업을 별도의 페이지로 제공
-![뉴드라이브](image/drive-location-modal.png)
+![뉴드라이브](./image/drive-location-modal.png)
 
 ---
 <style scoped>
@@ -425,7 +425,7 @@ p > img {
 }
 </style>
 ## 과업을 별도의 페이지로 제공
-![뉴드라이브](image/drive-location-popup.png)
+![뉴드라이브](./image/drive-location-popup.png)
 
 ---
 
@@ -463,7 +463,7 @@ p > img {
 }
 </style>
 ## 과업을 별도의 페이지로 제공
-![뉴드라이브](image/link-share-1.png)
+![뉴드라이브](./image/link-share-1.png)
 
 ---
 
@@ -481,7 +481,7 @@ p > img {
 }
 </style>
 ## 과업을 별도의 페이지로 제공
-![뉴드라이브](image/iframe-arrow-to-A.png)
+![뉴드라이브](./image/iframe-arrow-to-A.png)
 
 
 ---
@@ -499,7 +499,7 @@ p > img {
 }
 </style>
 ## 과업을 별도의 페이지로 제공
-![뉴드라이브](image/iframe-arrot-to-C.png)
+![뉴드라이브](./image/iframe-arrot-to-C.png)
 
 ---
 <style scoped>
@@ -515,7 +515,7 @@ p > img {
 }
 </style>
 ## 과업을 별도의 페이지로 제공
-![뉴드라이브](image/iframe-arrow-c-to-a.png)
+![뉴드라이브](./image/iframe-arrow-c-to-a.png)
 
 ---
 <style scoped>
@@ -531,7 +531,7 @@ p > img {
 }
 </style>
 ## 과업을 별도의 페이지로 제공
-![뉴드라이브](image/iframe-arrow-a-to-b.png)
+![뉴드라이브](./image/iframe-arrow-a-to-b.png)
 
 ---
 
@@ -582,7 +582,7 @@ p > img {
 }
 </style>
 ## 웹톡의 연계 작업
-![뉴드라이브](image/relation-task.png)
+![뉴드라이브](./image/relation-task.png)
 
 ---
 
@@ -620,7 +620,7 @@ p > img {
 }
 </style>
 ## 웹톡의 연계 작업
-![뉴드라이브](image/library-tasks.png)
+![뉴드라이브](./image/library-tasks.png)
 
 ---
 
@@ -638,7 +638,7 @@ p > img {
 }
 </style>
 ## 웹톡의 연계 작업
-![뉴드라이브](image/library-working.png)
+![뉴드라이브](./image/library-working.png)
 
 ---
 
